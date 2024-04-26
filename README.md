@@ -4,4 +4,8 @@ Implement the Banker’s algorithm to answer the following question： Is the sy
 
  #What is the Banker's algorithm?
 
+The bankers algorithm consists of multiple instances of which each process must claim a maximum use. When a process requests a resource it may need to wait until a different process returns its resources. There's some terms we need to cover. A resource can be available if there are enough resources to allocate to the different processes. Max is the maximum amount of resources the resource matrix can hold. Allocation is the matrix of resources which are distributed to complete the task. Lastly need is the matrix of the resources needed to complete the task. There are 2 subalgorithms within the bankers algorithm called the Safety algorithm and the resource request algorithm. 
+Let's start with the Safety algorithm. It is used to determine the safety of the system. We first need to set work as available. Next we need to check the availability of resources as long as finish is false. When finish becomes true then the system is considered to be safe. 
+The resource request algorithm is used to determine when to allocate resources according to the behavior of the system. If the need is greater than or equal to the request and if the resources available are greater or equal to the requested resources then the requested resource is available for use by the process that requested it. These two algorithms work together in order to solve the issues of resource allocation for different processes. 
+
  #How to run?
