@@ -9,3 +9,7 @@ Let's start with the Safety algorithm. It is used to determine the safety of the
 The resource request algorithm is used to determine when to allocate resources according to the behavior of the system. If the need is greater than or equal to the request and if the resources available are greater or equal to the requested resources then the requested resource is available for use by the process that requested it. These two algorithms work together in order to solve the issues of resource allocation for different processes. 
 
  #How to run?
+ Compile:
+g++ -o main main.cpp
+Run:
+./main
