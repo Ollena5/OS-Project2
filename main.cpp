@@ -12,9 +12,9 @@ int main() {
     int processes[] = { 0, 1, 2, 3, 4 };
     
     //need to check if file can be opened
-    std::ifstream table("dataTable.txt");
-    if (!table) {
-        cout << "Failed to open table.txt." << std::endl;
+    ifstream DataTable("dataTable.txt");
+    if (!DataTable) {
+        cout <<"Failed to open file" <<endl;
         return 0;
     }
 
@@ -24,13 +24,13 @@ int main() {
     int available[RESOURCES];
 
     for (int i = 0; i < PROCESSES; ++i) {
-        for (int j = 0; j < RESOURCES; ++j) table >> allocated[i][j];
-        for (int j = 0; j < RESOURCES; ++j) table >> max[i][j];
+        for (int j = 0; j < RESOURCES; ++j) DataTable >> allocated[i][j];
+        for (int j = 0; j < RESOURCES; ++j) DataTable >> max[i][j];
         // first row of file will contain avaliable resources
-        if (i == 0) for (int j = 0; j < RESOURCES; ++j) table >> available[j];
+        if (i == 0) for (int j = 0; j < RESOURCES; ++j) DataTable >> available[j];
     }
 //print out the allocated resources
-    std::cout << "Allocated resources: ";
+    cout << "Allocated resources: ";
     for (int i = 0; i < PROCESSES; ++i)
         for (int j = 0; j < RESOURCES; ++j) cout << allocated[i][j] << ' ';
     cout <<endl;
@@ -43,7 +43,6 @@ int main() {
     cout << "Available resources: ";
     for (int i = 0; i < RESOURCES; ++i) cout << available[i] << ' ';
     cout <<endl;
-
     checkIfSafe(processes, available, max, allocated);
     return 1;
 }
@@ -54,15 +53,12 @@ bool checkIfSafe(int processes[], int available[], int max[][RESOURCES], int all
     for (int i = 0 ; i < PROCESSES ; i++) {
         for (int j = 0 ; j < RESOURCES ; j++) need[i][j] = max[i][j] - allocated[i][j];
     }
-  
     bool done[PROCESSES] = {0};
     int sequence[PROCESSES];
-
     int work[RESOURCES];
     for (int i = 0; i < RESOURCES; i++) work[i] = available[i];
     int count = 0;
     while (count < PROCESSES) {
-
         bool found = false;
         for (int p =0; p < PROCESSES; p++) {
             if (done[p] == 0) {
@@ -70,7 +66,6 @@ bool checkIfSafe(int processes[], int available[], int max[][RESOURCES], int all
                 for (j =0; j <RESOURCES; j++) {
                     if (need[p][j] > work[j]) break;
                 }
-
                 if (j ==RESOURCES) {
                     for (int k =0 ; k <RESOURCES; k++) work[k] +=allocated[p][k];
                     sequence[count++] = p;
@@ -84,7 +79,7 @@ bool checkIfSafe(int processes[], int available[], int max[][RESOURCES], int all
             return false;
         }
     }
-    cout <<"The system is in safe state. Safe sequence is: ";
+    cout <<"The system is in a safe state. The safe sequence is: ";
     for (int i = 0; i < PROCESSES ; i++) cout<< sequence[i] <<' ';
     cout <<endl;
     return true;
