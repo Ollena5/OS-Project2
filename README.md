@@ -17,7 +17,7 @@ Run:
 ./main
 
 # Data Table
-This is the data table that was provided to us by Dr. Guan:
+This is the data table:
 
 |Process	|Allocation	|Max	    |Available|
 | ----------|---------- |-----------|-------- |
