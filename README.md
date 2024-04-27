@@ -19,12 +19,13 @@ Run:
 # Data Table
 This is the data table that was provided to us by Dr. Guan:
 
-Process	Allocation	Max	    Available
-P0	    0 1 0	    7 5 3	3 3 2
-P1	    2 0 0	    3 2 2	
-P2	    3 0 2	    9 0 2	
-P3	    2 1 1	    2 2 2	
-P4	    0 0 2	    4 3 3	
+|Process	|Allocation	|Max	    |Available|
+| ----------|---------- |-----------|-------- |
+|P0	    |0 1 0	    |7 5 3	|3 3 2|
+|P1	 |   2 0 0	 |   3 2 2	|
+|P2	 |   3 0 2	 |   9 0 2	|
+|P3	  |  2 1 1	  |  2 2 2	|
+|P4	 |   0 0 2	   | 4 3 3	|
 I converted the above table into a .txt file:
 0 1 0 7 5 3 3 3 2
 2 0 0 3 2 2
